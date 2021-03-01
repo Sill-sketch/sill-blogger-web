@@ -6,6 +6,7 @@ import { Message } from 'view-design'
 
 const http = axios.create({
   baseURL: 'http://localhost:9528/dev-api/',
+  // baseURL: 'http://www.kanoko.top/sill-blogger/prod-api/',
   timeout: settings.timeout // 请求超时
 })
 

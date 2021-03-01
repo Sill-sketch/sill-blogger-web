@@ -13,7 +13,7 @@ import Home from '@/views/home'
 import Article from '@/views/article'
 
 export default new Router({
-  mode: 'history', // 移除 #
+  // mode: 'history', // 移除 #
   routes: [
     {
       path: '/',

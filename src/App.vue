@@ -43,7 +43,6 @@ export default {
 }
 
 .app-footer {
-  height: 225px;
   background-color: #515A6E;
 }
 </style>
