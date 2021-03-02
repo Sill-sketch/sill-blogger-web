@@ -1,12 +1,10 @@
 import axios from 'axios'
 
 import settings from '@/settings'
-
 import { Message } from 'view-design'
 
 const http = axios.create({
-  baseURL: 'http://localhost:9528/dev-api/',
-  // baseURL: 'http://www.kanoko.top/sill-blogger/prod-api/',
+  baseURL: process.env.VUE_APP_BASE_API,
   timeout: settings.timeout // 请求超时
 })
 
