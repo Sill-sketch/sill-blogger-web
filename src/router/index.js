@@ -9,8 +9,8 @@ Router.prototype.replace = function replace(location) {
   return originalReplace.call(this, location).catch(err => err)
 }
 
-import Home from '@/views/home'
-import Article from '@/views/article'
+import Home from '@/views/Home'
+import Article from '@/views/Article'
 
 export default new Router({
   // mode: 'history', // 移除 #

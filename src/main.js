@@ -4,13 +4,15 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
-import 'view-design/dist/styles/iview.css'
-import 'mavon-editor/dist/css/index.css'
-
 import ViewUI from 'view-design'
-import MavonEditor from 'mavon-editor'
+import 'view-design/dist/styles/iview.css'
 Vue.use(ViewUI, {})
+
+import MavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
 Vue.use(MavonEditor)
+
+import '@/utils/enroll-filters' // filters
 
 Vue.config.productionTip = false
 

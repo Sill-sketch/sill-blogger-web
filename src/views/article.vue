@@ -1,43 +1,52 @@
 <template>
-  <div class="box" align="center">
-    <i-card style="width: 1025px;padding: 8px">
-      <div>
-        <div>
-          <span class="article-title">{{ article.title }}</span>
+  <div id="article" align="center">
+    <i-row :gutter="30">
+      <i-col :lg="5" :xs="2" />
 
-          <br><br>
-          <span class="article-foreword">{{ article.foreword }}</span>
-        </div>
+      <i-col :lg="14" :xs="20">
+        <i-card dis-hover style="padding: 8px">
+          <div>
+            <span class="article-title">{{ article.title }}</span>
 
-        <div v-for="(content, index) in article.contentList" :key="content.id" style="text-align: left;margin: 45px 0 0 0">
-          <i-divider :id="index + 1" orientation="left">
-            <h3>{{ content.subTitle }} &nbsp;<a class="number-sign" @click="anchor = '#' + (index + 1)">#</a></h3>
-          </i-divider>
-          <mavon-editor
-            :value="content.subContent"
-            :toolbars="{}"
-            :subfield="false"
-            :toolbars-flag="false"
-            default-open="preview"
-            style="z-index: 1"
-          />
-          <!-- <p>{{ content.subContent }}</p> -->
+            <br><br>
+            <span class="article-foreword">{{ article.foreword }}</span>
+          </div>
 
-          <br><br>
-        </div>
-      </div>
+          <div v-for="(content, index) in article.contentList" :key="content.id" style="text-align: left;margin: 45px 0 0 0">
+            <i-divider :id="index + 1" orientation="left">
+              <span class="article-title-sub">
+                {{ content.subTitle }} &nbsp;<a class="number-sign" @click="anchor = '#' + (index + 1)">#</a>
+              </span>
+            </i-divider>
 
-      <!-- 右侧固定栏 -->
-      <i-affix :offset-top="75" style="top: 0;position: absolute;margin-left: 1015px;width: 225px">
-        <i-card dis-hover align="left">
-          <i-anchor :affix="false" show-ink @on-select="anchorSelect">
-            <template v-for="(content, index) in article.contentList">
-              <i-anchor-link :key="content.id" :href="'#' + (index + 1)" :title="content.subTitle" />
-            </template>
-          </i-anchor>
+            <mavon-editor
+              :value="content.subContent"
+              :subfield="false"
+              :toolbars-flag="false"
+
+              :box-shadow="false"
+              default-open="preview"
+              preview-background="#FFFFFF"
+              style="z-index: 0;border: none;"
+            />
+
+            <br><br>
+          </div>
         </i-card>
-      </i-affix>
-    </i-card>
+      </i-col>
+
+      <i-col :lg="4" :xs="2">
+        <i-affix :offset-top="75">
+          <i-card dis-hover align="left">
+            <i-anchor :affix="false" show-ink @on-select="anchorSelect">
+              <template v-for="(content, index) in article.contentList">
+                <i-anchor-link :key="content.id" :href="'#' + (index + 1)" :title="content.subTitle" />
+              </template>
+            </i-anchor>
+          </i-card>
+        </i-affix>
+      </i-col>
+    </i-row>
   </div>
 </template>
 
@@ -90,32 +99,33 @@ export default {
 </script>
 
 <style scoped>
-.box {
-  margin-top: 75px;
-}
 
-.article-title {
+#article >>> .article-title {
   font-size: 27px;
 }
 
-.article-foreword {
-  font-size: 8px;
+#article >>> .article-foreword {
+  font-size: 14px;
 }
 
-.number-sign {
+#article >>> .article-title-sub {
+  font-size: 22px;
+}
+
+#article >>> .number-sign {
   font-size: 21px;
   opacity: 0;
 }
 
-.ivu-divider:hover .number-sign {
+#article >>> .ivu-divider:hover .number-sign {
   opacity: 1;
 }
 
-.article-list-title {
+/* .article-list-title {
   color: black;
 }
 
 .article-list-title:hover {
   color: #0080FF;
-}
+} */
 </style>

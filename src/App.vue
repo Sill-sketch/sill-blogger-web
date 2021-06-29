@@ -2,12 +2,13 @@
   <div id="app">
     <i-layout>
       <i-affix>
+        <!-- 固定头部 -->
         <i-header class="app-header">
-          <span class="app-logo" @click="$router.push('/')">Sill-Blogger</span>
+          <div class="app-logo" @click="$router.push('/')">kanoko.top</div>
         </i-header>
       </i-affix>
 
-      <i-content>
+      <i-content class="app-content">
         <router-view />
 
         <br><br>
@@ -26,23 +27,34 @@ export default {
 }
 </script>
 
-<style>
-/* #app { } */
+<style scoped>
 
-.app-header {
+/* app */
+
+#app {
+  font-family: "Courier New";
+}
+
+#app >>> .app-header {
   z-index: 999;
-  width: 100%;
-  height: 50px;
+  height: 54px;
   line-height: 50px;
 }
 
-.app-logo {
-  color: white;
-  font-size: 21px;
-  cursor: pointer;
+#app >>> .app-content {
+  margin-top: 45px;
+  min-height: 1075px;
+  overflow-x: hidden;
 }
 
-.app-footer {
+#app >>> .app-footer {
+  height: 245px;
   background-color: #515A6E;
+}
+
+#app >>> .app-logo {
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
 }
 </style>
