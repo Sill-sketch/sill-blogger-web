@@ -1,23 +1,27 @@
 <template>
   <div id="article" align="center">
     <i-row :gutter="30">
-      <i-col :lg="5" :xs="2" />
+      <i-col :lg="5" />
 
-      <i-col :lg="14" :xs="20">
-        <i-card dis-hover style="padding: 8px">
-          <div>
+      <i-col :lg="14">
+        <i-card dis-hover style="padding: 16px">
+          <div class="article-head">
             <span class="article-title">{{ article.title }}</span>
 
             <br><br>
-            <span class="article-foreword">{{ article.foreword }}</span>
+            <i-col :lg="17" >
+              <span class="article-foreword">{{ article.foreword }}</span>
+            </i-col>
           </div>
 
-          <div v-for="(content, index) in article.contentList" :key="content.id" style="text-align: left;margin: 45px 0 0 0">
+          <div v-for="(content, index) in article.contentList" :key="content.id" style="text-align: left;margin: 0 0 0 0">
             <i-divider :id="index + 1" orientation="left">
               <span class="article-title-sub">
                 {{ content.subTitle }} &nbsp;<a class="number-sign" @click="anchor = '#' + (index + 1)">#</a>
               </span>
             </i-divider>
+
+            <br>
 
             <mavon-editor
               :value="content.subContent"
@@ -26,6 +30,7 @@
 
               :box-shadow="false"
               default-open="preview"
+              code-style="tomorrow-night"
               preview-background="#FFFFFF"
               style="z-index: 0;border: none;"
             />
@@ -35,8 +40,9 @@
         </i-card>
       </i-col>
 
-      <i-col :lg="4" :xs="2">
-        <i-affix :offset-top="75">
+      <!-- 右侧固定 / 锚点 -->
+      <i-col :lg="4">
+        <i-affix :offset-top="99">
           <i-card dis-hover align="left">
             <i-anchor :affix="false" show-ink @on-select="anchorSelect">
               <template v-for="(content, index) in article.contentList">
@@ -100,6 +106,10 @@ export default {
 
 <style scoped>
 
+#article >>> .article-head {
+  padding: 0 0 45px 0;
+}
+
 #article >>> .article-title {
   font-size: 27px;
 }
@@ -119,6 +129,11 @@ export default {
 
 #article >>> .ivu-divider:hover .number-sign {
   opacity: 1;
+}
+
+/* markdown 编辑器，设置代码部分背景颜色 */
+#article >>> .hljs {
+  background-color: #323232;
 }
 
 /* .article-list-title {

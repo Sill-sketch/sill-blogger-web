@@ -1,9 +1,9 @@
 <template>
   <div id="home" align="center">
     <i-row :gutter="30">
-      <i-col :lg="4" :xs="2" />
+      <i-col :lg="4" />
 
-      <i-col :lg="12" :xs="20">
+      <i-col :lg="12">
         <i-carousel :autoplay-speed="3000" autoplay class="demo-carousel">
           <i-carousel-item >山有木兮木有枝，心悦君兮君不知</i-carousel-item>
           <i-carousel-item>夕阳何事近黄昏，不道人间犹有未招魂</i-carousel-item>
@@ -32,7 +32,7 @@
         </div>
       </i-col>
 
-      <i-col :lg="4" :xs="0">
+      <i-col :lg="4">
         <i-card class="user-panel">
           <i-divider>
             <i-avatar src="http://www.kanoko.top/wealth/sill-avatar.png" style="width: 57px;height: 57px" />
@@ -47,7 +47,7 @@
         </i-card>
       </i-col>
 
-      <i-col :lg="4" :xs="2" />
+      <i-col :lg="4" />
     </i-row>
   </div>
 </template>
@@ -93,6 +93,7 @@ export default {
 /* left article */
 
 #home >>> .article-card {
+  font-family: "Courier New";
   cursor: pointer;
   margin: 8px 0 0 0;
   height: 125px;

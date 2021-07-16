@@ -31,10 +31,6 @@ export default {
 
 /* app */
 
-#app {
-  font-family: "Courier New";
-}
-
 #app >>> .app-header {
   z-index: 999;
   height: 54px;
